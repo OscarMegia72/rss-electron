@@ -4,7 +4,8 @@ var GetNoticia = require('../core/rss-get')
 //caching
 var cacheManager = require('cache-manager');
 var fsStore = require('cache-manager-fs');
-var memoryCache = cacheManager.caching({store: fsStore, options:{max: 100, ttl: 10*3600, path:'diskcache'}});
+const ttl= 8*3600 //8 horas de caching
+var memoryCache = cacheManager.caching({store: fsStore, options:{max: 100, ttl: ttl, path:'diskcache'}});
 const key = "__RSS_RENDER_CACHING__RSS";
 //===========================
 //cache del servicio
