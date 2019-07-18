@@ -19,3 +19,15 @@ Pruebas de integración de distintos modo de render y de caching de contenidos.
     src/api/core
     feed-noticias.js
     feed-radios.js
+
+### Direcciones de consulta
+http://localhost:3100/rss?tipo=feed-radios&modo=vue
+http://localhost:3100/rss?tipo=feed-radios&modo=ssr
+http://localhost:3100/rss?tipo=feed-radios&modo=rest
+
+http://localhost:3100/rss?tipo=feed-noticias&modo=vue
+http://localhost:3100/rss?tipo=feed-noticias&modo=ssr
+http://localhost:3100/rss?tipo=feed-noticias&modo=rest
+
+
+EL MODO VUE ESTA SIN MAQUETAR SOLO PARA ENTRADA DE DATOS
