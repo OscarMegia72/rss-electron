@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{title}</title>
+    <!-- <link rel='stylesheet' href='dist/ivox.css' /> -->
+    <script src='dist/js/main.js'></script>
+    <!-- <script src='../dist/js/dust-helpers.js'></script> -->
+  </head>
+  <body>
+  
+  <section class='seccion-ideas'>
+      <div class="fuentes-varias"><span class='titulo'>
+          {@select key=tipo }
+            {@eq value="feed-noticias"}#100 Noticias{/eq}
+            {@eq value="feed-radios"}#100 PodCast{/eq}
+        {/select}
+        #100 PodCast
+        </span>
+        {#listaFeed}<span class='feed'>{.} | </span>{/listaFeed}
+    </div>
+  <div class='noticias' >
+      {#data}
+          <div class='noticia' >
+            
+                    <!-- {@eq key=idfeed value="20minutos" }
+                        <p>20min</p>
+                    {/eq} -->
+                    <span class='origen-feed'>
+                      <span class='ordinal'>{pos_filtro}</span>
+                        <a href="{link}" target="_blank">
+                    <span class='texto_origen_feed' >{idfeed}
+                      {?creator}
+                      {~n}
+                      <span class='autor'>
+                        {~s}{creator}
+                      </span>
+                       
+                      {/creator}
+                    </span>  
+                  </a>
+                    </span>
+                 
+                              <span class='titulo'>{title}</span>
+                              
+                              <div class='descripcion'>
+                                  {?imagen}
+                                  <img class='icono-canal' src='{imagen}'></img>
+                                  {/imagen}
+                                    <div class='texto-html'>{resumen|s}</div>
+                              </div>
+                             
+                                <span style="padding: 10px"></span>
+                              <footer class='footer'>
+                                  <div class="categorias">
+                                    {?categories}
+                                      {#categories}{.} | {/categories}
+                                    {:else}
+                                      Sin Categorías
+                                    {/categories}
+                                  </div>
+                                  <div class="fecha_noticia">{horas}</div>
+                                  {?enclosure}
+                                    <div class='reproductor'>
+                                        <audio controls controlsList="nodownload">
+                                          <source src={enclosure.url} type="audio/mpeg">
+                                        </audio>
+
+                                    </div>
+                                
+                                {/enclosure}
+                            </footer>
+          </div>
+      {/data}
+   </div>
+   </section>
+	<h2>{error.status}</h2>
+  <pre>{error.stack}</pre>
+  
+</html>
+
+

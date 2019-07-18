@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>{title}</title>
+        
+        <script>
+          var tipo='{tipo}';
+          var resumen='{resumen}';
+          var listaFeed='{listaFeed}';
+          var data={data|s};
+        </script>
+        <script src='../dist/js/main_vue.js' async></script> 
+      </head>
+      <body>
+        <div id='tablon'></div>
+      </body>
+    </html>
