@@ -2,6 +2,6 @@
   tasks:
     - webpack --config ./webpack.config.js
     - - PORT=3100 nodemon --exec babel-node --inspect src/api/server.js &
-    - - - electron &
+    - - - electron . &
     
  
