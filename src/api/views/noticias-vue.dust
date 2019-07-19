@@ -12,6 +12,6 @@
         <script src='../dist/js/main_vue.js' async></script> 
       </head>
       <body>
-        <div id='tablon'></div>
+        <div id='app'></div>
       </body>
     </html>

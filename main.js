@@ -15,7 +15,7 @@ function createWindow () {
   // and load the index.html of the app.
   //mainWindow.loadFile('./src/index.html')
   setTimeout(x=>{
-    mainWindow.loadURL('http://localhost:3100/rss?tipo=feed-radios&modo=ssr')
+    mainWindow.loadURL('http://localhost:3100/rss?tipo=feed-radios&modo=vue')
     //mainWindow.setFullScreen(true)
   },1000)
   

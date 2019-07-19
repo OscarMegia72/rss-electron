@@ -25,9 +25,10 @@ http://localhost:3100/rss?tipo=feed-radios&modo=vue
 http://localhost:3100/rss?tipo=feed-radios&modo=ssr
 http://localhost:3100/rss?tipo=feed-radios&modo=rest
 
+** NOTICIAS SIN MAQUETAR CON NUEVO ESTILO, NI AJUSTAR VARIABLES EN VUE
 http://localhost:3100/rss?tipo=feed-noticias&modo=vue
+
+OPERATIVAS:
 http://localhost:3100/rss?tipo=feed-noticias&modo=ssr
 http://localhost:3100/rss?tipo=feed-noticias&modo=rest
 
-
-EL MODO VUE ESTA SIN MAQUETAR SOLO PARA ENTRADA DE DATOS
