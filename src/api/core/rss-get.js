@@ -34,21 +34,24 @@ class GetNoticia{
             let resumen = []
             // let alias = mapa_feeds.get(url)
             // let final_url = alias ? alias : url
-            this.maxNoticias=50
-            let maxchar=300
+            
+            let maxchar=512
             let pos=1
             let listaFeed=[]
             //console.log('GetNoticia.getNoticia: '+final_url)
             for (const feed_url of mapa_feeds.values()) {
-                console.info(">>>>   WWW "+feed_url    )
+                console.info("get feed:  "+feed_url    )
                     var feed = await parser.parseURL(feed_url)
-                    
+                    let maxNoticias_by_feed=40
+                    if(tipo==="feed-radios")maxNoticias_by_feed=20
                     if(feed){
                         listaFeed.push(`${this.getByValue(mapa_feeds,feed_url)}`)
                         for(var i in feed.items){
-                            
+                           
                             if(feed.items[i].content){
-                                feed.items[i].resumen=feed.items[i].contentSnippet.substring(0,maxchar)
+                                console.info("content length: "+feed.items[i].content.length)
+                                feed.items[i].resumen=feed.items[i].content.substring(0,maxchar)
+                                feed.items[i].resumen_ssr=feed.items[i].contentSnippet.substring(0,maxchar)
                                 feed.items[i].resSize=feed.items[i].resumen.length
                                 if(feed.items[i].content.length>maxchar){
                                     feed.items[i].resumen+= " {...}"
@@ -78,19 +81,29 @@ class GetNoticia{
                             if(tipo!='feed-radios'){
                                 feed.items[i].enclosure=null
                             }
-                            resumen.push(feed.items[i])
-                            this.maxNoticias--
+                            if(maxNoticias_by_feed>0){
+                                resumen.push(feed.items[i])
+                                maxNoticias_by_feed--
+
+                            }else{
+                                console.info(`fin carga feed forzada: ${feed_url}`)
+                                break
+                            }
+                           
+                           
                         } 
                         //return resumen  
                     }
                 }
+                console.info("ordenado por fecha")
                 arraySort(resumen, 'isoDate',{reverse: true})
                 let pos_filtro=1
                 resumen.forEach(data=>{
                     data.pos_filtro=pos_filtro.toString().padStart(3,'0')
                     pos_filtro++;
                 })
-                return {resumen:resumen.slice(0,100) , listaFeed:listaFeed}
+                console.info("feed count:  "+resumen.length)
+                return {resumen:resumen , listaFeed:listaFeed}
         }catch(e){
             let error = e.name + ": " + e.message
             let mensaje  = e.message.includes('404') ? 'url incorrecta' : e.message

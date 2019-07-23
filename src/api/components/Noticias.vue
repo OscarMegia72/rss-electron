@@ -4,26 +4,28 @@
        
     </aside>
     
-    <section class='seccion-ideas'>
+    <section class='nt-seccion-ideas'>
       
         
-        <div class='filtro-noticias'>
-             <span class='titulo'>NOTICIAS</span>
+        <div class='nt-filtro-noticias'>
+             <span class='nt-titulo'>NOTICIAS</span>
             <!-- <span class='boton-orden-fecha' v-on:click="ordenaNoticias('fecha')" >Por Fecha</span>
              <span class='boton-orden-fecha' v-on:click="ordenaNoticias('feed')">Por Feed</span>
               <span class='boton-orden-fecha' v-on:click="ordenaNoticias('altura')">Por Altura</span> -->
         </div>
-        <div class='noticias' >
-                <div class='noticia' v-for="noticia_origen in data" v-bind:key="noticia_origen._id">
-                    <a class='origen-feed' :href=noticia_origen.link target="_blank" :style="{ 'background-color': noticia_origen.color_feed}"
+        <div class='nt-noticias' >
+                <div class='nt-noticia' v-for="noticia_origen in data" v-bind:key="noticia_origen._id">
+                    <a class='nt-origen-feed' :href=noticia_origen.link target="_blank" :style="{ 'background-color': noticia_origen.color_feed}"
                     @click.ctrl.exact='openNoticias(noticia_origen.id)'
                      >
-                     <span  ><span class='texto_origen_feed' >{{noticia_origen.idfeed}}</span>  </span>
+                     <span  ><span class='nt-texto_origen_feed' >{{noticia_origen.idfeed}}</span>  </span>
                      </a>
-                        <span class='titulo'>{{noticia_origen.title}}</span>
-                        <div class='texto-html' v-html="noticia_origen.resumen"></div>
+                     
+                        <span class='nt-titulo'>{{noticia_origen.title}}</span>
+                        <div class='nt-texto-html' v-html="noticia_origen.resumen"></div>
+                        <span class="nt-fecha_noticia">{{noticia_origen.horas}}</span>
                         <span style="padding: 10px"></span>
-                        <span class="fecha_noticia">{{noticia_origen.fecha}}</span>
+                        
                  </div>
                
         </div>

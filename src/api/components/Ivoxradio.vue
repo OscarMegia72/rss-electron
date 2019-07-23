@@ -8,7 +8,7 @@
       
         
         <div class='filtro-noticias'>
-            <span class='titulo'>Radios IVOX - Order by last</span>
+            <span class='titulo'>Radios IVOX - Order by last, caching: </span><span class='titulo' v-if='validez'>{{validez}}</span>
         </div>
         <div class='noticias' >
                 <div class='noticia' v-for="item in data" v-bind:key="item._id">
@@ -52,7 +52,8 @@
          props:{
             tipo:{type: String, required: true},
             listaFeed:{type:String,required:true},
-            data:{type:Array, required:true}
+            data:{type:Array, required:true},
+            validez:{type:String}
         },
 
         data(){
