@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var GetNoticia = require('../core/rss-get')
-//caching
+//caching to file
 var moment = require('moment')
 var cacheManager = require('cache-manager');
 var fsStore = require('cache-manager-fs');

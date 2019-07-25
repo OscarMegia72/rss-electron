@@ -3,7 +3,7 @@ require('./public/stylesheets/less/noticias/noticias.less')
 import Vue from 'vue';
 import Ivoxradio from './components/Ivoxradio.vue'
 import Noticias from './components/Noticias.vue'
-console.log(`DESDE MAIN-VUE ${tipo}`)
+console.log(`DESDE, MAIN-VUE ${tipo}`)
 switch(tipo){
 
     case 'feed-radios':
