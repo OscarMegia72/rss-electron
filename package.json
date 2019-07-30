@@ -8,7 +8,15 @@
     "api": "PORT=3100 nodemon --exec babel-node src/api/server.js",
     "api-d": "PORT=3100 nodemon --exec babel-node --inspect src/api/server.js",
     "webpack": "webpack --config ./webpack.config.js --watch",
-    "start": "taskfile start"
+    "start": "taskfile start",
+    "dist": "electron-builder",
+    "pack": "electron-builder --dir"
+  },
+  "build": {
+    "appId": "20192607-A003",
+    "mac": {
+      "category": "noticias"
+    }
   },
   "author": "oscar megía",
   "license": "MIT",
@@ -17,19 +25,20 @@
     "@babel/node": "7.4.5",
     "@babel/preset-env": "7.4.5",
     "babel-jest": "24.8.0",
+    "css-loader": "2.1.1",
     "electron": "^5.0.7",
+    "electron-builder": "^21.1.5",
+    "file-loader": "3.0.1",
     "html-webpack-plugin": "^3.2.0",
-    "taskfile": "^0.10.0",
     "less": "3.9.0",
     "less-loader": "5.0.0",
-    "webpack": "4.30.0",
-    "webpack-cli": "3.3.1",
-    "webpack-dev-server": "3.3.1",
+    "taskfile": "^0.10.0",
     "vue-loader": "15.7.0",
     "vue-svg-loader": "0.12.0",
     "vue-template-compiler": "2.6.10",
-    "file-loader": "3.0.1",
-    "css-loader": "2.1.1"
+    "webpack": "4.30.0",
+    "webpack-cli": "3.3.1",
+    "webpack-dev-server": "3.3.1"
   },
   "dependencies": {
     "adaro": "~1.0.4",
@@ -49,6 +58,9 @@
     "moment": "^2.24.0",
     "morgan": "~1.9.0",
     "nodemon": "^1.19.1",
+    "npm": "^6.10.2",
+    "pm2": "^3.5.1",
+    "prerender": "^5.6.0",
     "pretty-ms": "^5.0.0",
     "rss-parser": "^3.7.1",
     "utf8": "^3.0.0",
