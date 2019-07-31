@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{title}</title>
+    <title>{lang_title}</title>
   </head>
   <body>
     <h1>{title}</h1>

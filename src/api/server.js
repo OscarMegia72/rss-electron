@@ -2,7 +2,6 @@
 var app = require('./app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
-
 var port = normalizePort(process.env.PORT || '3100');
 app.set('port', port);
 var server = http.createServer(app);
@@ -49,6 +48,7 @@ function onError(error) {
   }
 }
 function onListening() {
+  console.log("port", port)
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

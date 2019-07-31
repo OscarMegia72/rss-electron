@@ -5,12 +5,13 @@
   "main": "main.js",
   "scripts": {
     "electron": "electron .",
-    "api": "PORT=3100 nodemon --exec babel-node src/api/server.js",
-    "api-d": "PORT=3100 nodemon --exec babel-node --inspect src/api/server.js",
+    "api": "PORT=3100 MODO=develop nodemon --exec babel-node src/api/server.js",
+    "api-d": "PORT=3100 MODO=develop nodemon --exec babel-node --inspect src/api/server.js",
     "webpack": "webpack --config ./webpack.config.js --watch",
     "start": "taskfile start",
     "dist": "electron-builder",
-    "pack": "electron-builder --dir"
+    "pack": "electron-builder --dir",
+    "pro": "PORT=3100 nodemon --exec babel-node src/api/server.js"
   },
   "build": {
     "appId": "20192607-A003",
@@ -53,6 +54,7 @@
     "encoding": "^0.1.12",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
+    "i18n": "^0.8.3",
     "jsonwebtoken": "8.5.1",
     "md5": "^2.2.1",
     "moment": "^2.24.0",

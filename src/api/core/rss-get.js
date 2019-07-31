@@ -30,6 +30,11 @@ class GetNoticia{
         return resumen
     }
     async getNoticia(mapa_feeds, tipo){
+        console.log("=============================")
+        console.log("=============================")
+        console.log(mapa_feeds, tipo)
+        console.log("=============================")
+        console.log("=============================")
         try{         
             let resumen = []
             // let alias = mapa_feeds.get(url)
@@ -49,7 +54,7 @@ class GetNoticia{
                         for(var i in feed.items){
                            
                             if(feed.items[i].content){
-                                console.info("content length: "+feed.items[i].content.length)
+                                //console.info("content length: "+feed.items[i].content.length)
                                 feed.items[i].resumen=feed.items[i].content.substring(0,maxchar)
                                 feed.items[i].resumen_ssr=feed.items[i].contentSnippet.substring(0,maxchar)
                                 feed.items[i].resSize=feed.items[i].resumen.length
